@@ -1,0 +1,16 @@
+{
+  "posts": [
+    {
+      "name": "sdfs",
+      "age": "12",
+      "spec": "dasturchi",
+      "id": 1
+    },
+    {
+      "name": "jasurbek",
+      "age": "22",
+      "spec": "dasturchi",
+      "id": 2
+    }
+  ]
+}
