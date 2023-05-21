@@ -43,32 +43,57 @@
 // ----------------------------------------------------------------
 
 
-// let table = document.querySelector('table')
+let table = document.querySelector('table')
 
-// fetch('http://localhost:3000/posts')
-// .then(res => res.json())
-// .then(res => {
-//     console.log(res)
-// })
+
 
 let inputs = document.querySelectorAll('body [name]')
 let person = {}
+let persons = []
 const url = 'http://localhost:3000/posts'
+
+const render = (arr) =>{
+    table.innerHTML = ''
+
+    arr.forEach(el => {
+        table.innerHTML += `
+            <tr>
+                <td>${el.id}</td>
+                <td>${el.name}</td>
+                <td>${el.age}</td>
+                <td>${el.spec}</td>
+            </tr>
+        `
+    })
+}
+
+fetch(url)
+.then(res => res.json())
+.then(res => {
+    persons = res
+    render(persons)
+}) 
+
+const post  = (data) => {
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type':'application/json'
+        }
+    })
+    .then(res => res.json())
+    .then(res => {
+        persons.push(res)
+        render(persons)
+    })
+}
 
 const add = () => {
     inputs.forEach(input => {
         person[input.getAttribute('name')] = input.value
         input.value = ''
     })
-    
-fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(person),
-    headers: {
-        'Content-type':'application/json'
-    }
-}).then(res => res.json())
-.then(res => {
-    console.log(res)
-})
+     
+    post(person)
 }

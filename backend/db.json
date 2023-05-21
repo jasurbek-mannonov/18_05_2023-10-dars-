@@ -1,15 +1,15 @@
 {
   "posts": [
     {
-      "name": "sdfs",
-      "age": "12",
+      "name": "Jasurbek",
+      "age": "22",
       "spec": "dasturchi",
       "id": 1
     },
     {
-      "name": "jasurbek",
-      "age": "22",
-      "spec": "dasturchi",
+      "name": "ALisher",
+      "age": "19",
+      "spec": "dizayner",
       "id": 2
     }
   ]
